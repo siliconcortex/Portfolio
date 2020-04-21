@@ -1,12 +1,3 @@
-from django.shortcuts import render
-
-""""These imports are used to import the Built-in Views django
-has """
-from django.views.generic import (
-    TemplateView, ListView, DetailView,
-    CreateView, UpdateView, DeleteView,
-    )
-
 """Importing models """
 from main_app.models import Post
 
@@ -15,7 +6,7 @@ from main_app.forms import PostForm
 
 """Import the class-based-view login required
 Import the function-based-view login required"""
-from django.contrib.auth.mixins import LoginRequiredMixin
+#from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
 """Import the reverse and reverse_lazy functions"""
@@ -27,15 +18,31 @@ from django.shortcuts import render, get_object_or_404, redirect
 """Import timezone function"""
 from django.utils import timezone
 
-class PostListView(ListView):
-    """View that will display the posts as a list and will serve as a main blog page"""
-    model = Post
+def post_list(request):
+    posts_list = Post.objects.order_by('-published_date')
+    context_dict = {'posts_list': posts_list}
+    return render(request, 'main_app/post_list.html', context_dict)
 
-    def get_queryset(self):
-        """This function runs when the list is generated,
-        and is sorting by published date, descending"""
-        return Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+def post_detail(request, pk):
+    post = Post.objects.get(pk=pk)
+    context_dict = {'post':post}
+    return render(request, 'main_app/post_detail.html', context_dict)
 
-class PostDetailView(DetailView):
-    """View that will display the posts content in detail"""
-    model = Post
+@login_required
+def post_create(request):
+    if request.method == "POST":
+    #request.POST =
+    #<QueryDict: {'title': ['asdfasdf'], 'content': ['asdfasdf'],
+    #'thumbnail': [''], 'csrfmiddlewaretoken': ['nZBRmCfNwQeV0eQEajwzEntxAJzio8jB0Iaf3mc6KLt5BkLgWTkywb4wHYA7Hoic']}>
+        new_form = PostForm(request.POST)
+        if new_form.is_valid():
+            author = request.user
+            title = new_form.cleaned_data['title']
+            content = new_form.cleaned_data['content']
+            thumbnail = new_form.cleaned_data['thumbnail']
+            print(author, title, content)
+
+            new_post = Post.objects.create(author=author, title = title, content = content, thumbnail = thumbnail)
+            new_post.save()
+
+    return render(request, 'main_app/post_create.html')

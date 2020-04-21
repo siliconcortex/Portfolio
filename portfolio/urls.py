@@ -14,14 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.contrib.auth import views as auth_views
 from django.urls import include, path
 from main_app import views
 from django.conf.urls.static import static
-from portfolio import settings
+
+"""edit this to match projectname"""
+from . import settings
+
+
+
+""""the paths for the login and logout are done using the built-in django features"""
+
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin-login'),
-    path('', views.PostListView.as_view(), name='blog_posts'),
-    path('post/<pk>', views.PostDetailView.as_view(), name = 'blog_post_content'),
+    path('', views.post_list, name='post_list'),
+    path('post/<pk>', views.post_detail, name = 'post_detail'),
+    path('create/', views.post_create, name = 'post_create'),
+
+    path('login/', auth_views.LoginView.as_view(),{'template_name':'registration/login.html'},name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), {'next_page':''}, name='logout'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
