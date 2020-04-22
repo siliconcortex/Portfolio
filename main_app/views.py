@@ -29,95 +29,21 @@ def post_list(request):
 
 def post_detail(request, pk):
     pages_list = Page.objects.order_by('title')
+
     post = Post.objects.get(pk=pk)
-    context_dict = {'post':post, 'pages_list':pages_list}
+    context_dict = {
+        'post':post,
+        'pages_list':pages_list,
+        }
+        
     return render(request, 'main_app/post_detail.html', context_dict)
 
 def page_detail(request, pk):
     pages_list = Page.objects.order_by('title')
+
     page = Page.objects.get(pk=pk)
-    context_dict = {'page':page, 'pages_list':pages_list}
+    context_dict = {
+        'page':page,
+        'pages_list':pages_list,
+        }
     return render(request, 'main_app/page_detail.html', context_dict)
-
-@login_required
-def post_create(request):
-    if request.method == "POST":
-        new_form = PostForm(request.POST)
-        if new_form.is_valid():
-            print('form valid')
-            author = request.user
-            title = new_form.cleaned_data['title']
-            thumbnail = new_form.cleaned_data['thumbnail']
-            content_1 = new_form.cleaned_data['content_1']
-            inline_1 = new_form.cleaned_data['inline_1']
-            content_2 = new_form.cleaned_data['content_2']
-            inline_2 = new_form.cleaned_data['inline_2']
-            content_3 = new_form.cleaned_data['content_3']
-            inline_3 = new_form.cleaned_data['inline_3']
-            content_4 = new_form.cleaned_data['content_4']
-            inline_4 = new_form.cleaned_data['inline_4']
-            content_5 = new_form.cleaned_data['content_5']
-            inline_5 = new_form.cleaned_data['inline_5']
-
-            new_post = Post.objects.create(
-                author = author,
-                title = title,
-                thumbnail = thumbnail,
-                content_1 = content_1,
-                inline_1 = inline_1,
-                content_2 = content_2,
-                inline_2 = inline_2,
-                content_3 = content_3,
-                inline_3 = inline_3,
-                content_4 = content_4,
-                inline_4 = inline_4,
-                content_5 = content_5,
-                inline_5 = inline_5,
-            )
-
-            new_post.save()
-
-    pages_list = Page.objects.order_by('title')
-    return render(request, 'main_app/post_create.html', {'page_list':pages_list})
-
-@login_required
-def page_create(request):
-
-    if request.method == "POST":
-        new_form = PageForm(request.POST)
-        if new_form.is_valid():
-            print('form_is_valid')
-            author = request.user
-            title = new_form.cleaned_data['title']
-            thumbnail = new_form.cleaned_data['thumbnail']
-            content_1 = new_form.cleaned_data['content_1']
-            inline_1 = new_form.cleaned_data['inline_1']
-            content_2 = new_form.cleaned_data['content_2']
-            inline_2 = new_form.cleaned_data['inline_2']
-            content_3 = new_form.cleaned_data['content_3']
-            inline_3 = new_form.cleaned_data['inline_3']
-            content_4 = new_form.cleaned_data['content_4']
-            inline_4 = new_form.cleaned_data['inline_4']
-            content_5 = new_form.cleaned_data['content_5']
-            inline_5 = new_form.cleaned_data['inline_5']
-
-            new_page = Page.objects.create(
-                author = author,
-                title = title,
-                thumbnail = thumbnail,
-                content_1 = content_1,
-                inline_1 = inline_1,
-                content_2 = content_2,
-                inline_2 = inline_2,
-                content_3 = content_3,
-                inline_3 = inline_3,
-                content_4 = content_4,
-                inline_4 = inline_4,
-                content_5 = content_5,
-                inline_5 = inline_5,
-            )
-
-            new_page.save()
-
-    pages_list = Page.objects.order_by('title')
-    return render(request, 'main_app/page_create.html', {'page_list':pages_list})

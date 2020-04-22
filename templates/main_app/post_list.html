@@ -13,12 +13,12 @@
       {% if post.thumbnail %}
       <img src="{{ post.thumbnail.url }}" class="card-img-top" alt="post thumbnail">
       {% endif %}
-      <div class="card-body">
-        <h5 class="card-title"> {{ post.title}} </h5>
-        <p class="card-text"> {{ post.content|truncatechars:100|safe }}</p>
-        <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Read More</a>
+        <div class="card-body">
+          <h5 class="card-title"> {{ post.title}} </h5>
+          <p class="card-text"> {{ post.content_1|truncatechars:100|safe }}</p>
+          <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Read More</a>
+        </div>
       </div>
-    </div>
     {% endfor %}
   </div>
 

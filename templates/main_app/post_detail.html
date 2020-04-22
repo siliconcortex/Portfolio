@@ -2,6 +2,7 @@
 {% block content %}
 
 <h1 class = "display-4">{{post.title}}</h1>
+
 <!-- since thumbnails are optional, check if there are no thumbnails -->
 {% if post.thumbnail %}
 <div class="container">
@@ -10,6 +11,72 @@
 {% endif %}
 <hr class="my-4">
 <!-- the ( |safe ) parameter allows the text area to be inserted with HTML tags -->
-<p>{{post.content | safe}}</p>
+{% if post.content_1 %}
+<div class="container">
+  <p>{{post.content_1 | safe}}</p>
+</div>
+{% endif %}
+
+{% if post.inline_1 %}
+<div class="container">
+  <img src="{{ post.inline_1.url }}" class="img-fluid rounded mx-auto d-block " alt="inline image">
+</div>
+{% endif %}
+
+
+
+{% if post.content_2 %}
+<div class="container">
+  <p>{{post.content_2 | safe}}</p>
+</div>
+{% endif %}
+
+{% if post.inline_2 %}
+<div class="container">
+  <img src="{{ post.inline_2.url }}" class="img-fluid rounded mx-auto d-block " alt="inline image">
+</div>
+{% endif %}
+
+
+
+{% if post.content_3 %}
+<div class="container">
+  <p>{{post.content_3 | safe}}</p>
+</div>
+{% endif %}
+
+{% if post.inline_3 %}
+<div class="container">
+  <img src="{{ post.inline_3.url }}" class="img-fluid rounded mx-auto d-block " alt="inline image">
+</div>
+{% endif %}
+
+
+{% if post.content_4 %}
+<div class="container">
+  <p>{{post.content_4 | safe}}</p>
+</div>
+{% endif %}
+
+{% if post.inline_4 %}
+<div class="container">
+  <img src="{{ post.inline_4.url }}" class="img-fluid rounded mx-auto d-block " alt="inline image">
+</div>
+{% endif %}
+
+
+
+{% if post.content_5 %}
+<div class="container">
+  <p>{{post.content_5 | safe}}</p>
+</div>
+{% endif %}
+
+{% if post.inline_5 %}
+<div class="container">
+  <img src="{{ post.inline_5.url }}" class="img-fluid rounded mx-auto d-block " alt="inline image">
+</div>
+{% endif %}
+
 
 {% endblock %}
