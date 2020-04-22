@@ -15,11 +15,13 @@
       <!-- changed color from .navbar-light to .navbar dark -->
       <!-- changed color from .bg-light to .bg-dark -->
 
-    <!-- this part contains the brand portion of the navbar -->
-    <a class="navbar-brand" href="#">Leslie Caminade</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
+      <!-- Image and text -->
+      <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="/media/thumbnail/CGP_leslie_logo2.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+          Leslie Caminade
+        </a>
+      </nav>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -28,11 +30,25 @@
             <a class="nav-link" href="{% url 'post_list' %}">Posts<span class="sr-only">(current)</span></a>
             </li>
 
-            {% if user.is_authenticated %}
 
+            <!-- PAGES portion -->
+            {% if pages_list %}
+              {% for page in pages_list %}
+                <li class="nav-item active">
+                <a class="nav-link" href="{% url 'page_detail' pk=page.pk %}">{{page.title}}<span class="sr-only">(current)</span></a>
+                </li>
+              {% endfor %}
+            {% endif %}
+
+            <!-- admin portion -->
+            {% if user.is_authenticated %}
 
               <li class="nav-item active">
               <a class="nav-link" href="{% url 'post_create' %}">Create Post<span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item active">
+              <a class="nav-link" href="{% url 'page_create' %}">Create Page<span class="sr-only">(current)</span></a>
               </li>
 
               <li class="nav-item active">
@@ -40,6 +56,7 @@
               </li>
 
             {% else %}
+
               <li class="nav-item active">
               <a class="nav-link" href="{% url 'login' %}">Log In<span class="sr-only">(current)</span></a>
               </li>
