@@ -8,13 +8,12 @@ from main_app.models import (
 
 
 class PostForm(forms.ModelForm):
-    #form fields go here
     class Meta:
         model = Post
-        """"you can set the fields or you can set exclude"""
-        fields = ['title', 'content', 'thumbnail']
+        fields = '__all__'
+
 
 class PageForm(forms.ModelForm):
     class Meta:
         model = Page
-        exclude = ['author']
+        fields = '__all__'

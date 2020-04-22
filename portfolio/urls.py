@@ -32,7 +32,7 @@ urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('post/<pk>', views.post_detail, name = 'post_detail'),
     path('page/<pk>', views.page_detail, name = 'page_detail'),
-    path('create/', views.post_create, name = 'post_create'),
+    path('postcreate/', views.post_create, name = 'post_create'),
     path('pagecreate/', views.page_create, name = 'page_create'),
 
     path('login/', auth_views.LoginView.as_view(),{'template_name':'registration/login.html'},name='login'),

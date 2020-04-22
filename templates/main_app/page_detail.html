@@ -3,15 +3,6 @@
 
 <h1 class = "display-4">{{page.title}}</h1>
 
-<div class="container">
-  {% if user.is_authenticated %}
-  <button type="button" class="btn btn-info" >Edit</button>
-  <button type="button" class="btn btn-warning" >Delete</button>
-  {% endif %}
-
-</div>
-
-
 <!-- since thumbnails are optional, check if there are no thumbnails -->
 {% if page.thumbnail %}
 <div class="container">
@@ -20,13 +11,13 @@
 {% endif %}
 <hr class="my-4">
 <!-- the ( |safe ) parameter allows the text area to be inserted with HTML tags -->
-{% if post.content_1 %}
+{% if page.content_1 %}
 <div class="container">
-  <p>{{post.content | safe}}</p>
+  <p>{{page.content_1 | safe}}</p>
 </div>
 {% endif %}
 
-{% if post.inline_1 %}
+{% if page.inline_1 %}
 <div class="container">
   <img src="{{ page.inline_1.url }}" class="img-fluid rounded mx-auto d-block " alt="inline image">
 </div>
@@ -34,13 +25,13 @@
 
 
 
-{% if post.content_2 %}
+{% if page.content_2 %}
 <div class="container">
-  <p>{{post.content | safe}}</p>
+  <p>{{page.content_2 | safe}}</p>
 </div>
 {% endif %}
 
-{% if post.inline_2 %}
+{% if page.inline_2 %}
 <div class="container">
   <img src="{{ page.inline_2.url }}" class="img-fluid rounded mx-auto d-block " alt="inline image">
 </div>
@@ -48,26 +39,26 @@
 
 
 
-{% if post.content_3 %}
+{% if page.content_3 %}
 <div class="container">
-  <p>{{post.content | safe}}</p>
+  <p>{{page.content_3 | safe}}</p>
 </div>
 {% endif %}
 
-{% if post.inline_3 %}
+{% if page.inline_3 %}
 <div class="container">
   <img src="{{ page.inline_3.url }}" class="img-fluid rounded mx-auto d-block " alt="inline image">
 </div>
 {% endif %}
 
 
-{% if post.content_4 %}
+{% if page.content_4 %}
 <div class="container">
-  <p>{{post.content | safe}}</p>
+  <p>{{page.content_4 | safe}}</p>
 </div>
 {% endif %}
 
-{% if post.inline_4 %}
+{% if page.inline_4 %}
 <div class="container">
   <img src="{{ page.inline_4.url }}" class="img-fluid rounded mx-auto d-block " alt="inline image">
 </div>
@@ -75,13 +66,13 @@
 
 
 
-{% if post.content_5 %}
+{% if page.content_5 %}
 <div class="container">
-  <p>{{post.content | safe}}</p>
+  <p>{{page.content_5 | safe}}</p>
 </div>
 {% endif %}
 
-{% if post.inline_5 %}
+{% if page.inline_5 %}
 <div class="container">
   <img src="{{ page.inline_5.url }}" class="img-fluid rounded mx-auto d-block " alt="inline image">
 </div>
