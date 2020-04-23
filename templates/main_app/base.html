@@ -9,7 +9,7 @@
   </head>
   <body>
     <!-- navbar portion -->
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <!-- changed color from .navbar-light to .navbar dark -->
       <!-- changed color from .bg-light to .bg-dark -->
 
@@ -31,15 +31,48 @@
             <a class="nav-link" href="{% url 'post_list' %}">Posts<span class="sr-only">(current)</span></a>
             </li>
 
+            <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Projects
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      {% if pages_list %}
+                        {% for page in pages_list%}
+                          <a class="dropdown-item" href="{% url 'page_detail' pk=page.pk %}">{{page.title}}</a>
+                        {% endfor %}
+                      {% endif %}
 
-            <!-- PAGES portion -->
-            {% if pages_list %}
-              {% for page in pages_list %}
-                <li class="nav-item active">
-                <a class="nav-link" href="{% url 'page_detail' pk=page.pk %}">{{page.title}}<span class="sr-only">(current)</span></a>
-                </li>
-              {% endfor %}
-            {% endif %}
+                    </div>
+                  </li>
+
+
+              <!-- Begin Mailchimp Signup Form -->
+            <li class="nav-item active">
+              <div id="mc_embed_signup">
+              <form class="form-inline" action="https://wordpress.us19.list-manage.com/subscribe/post?u=286fd462a738b71c1e78cf651&amp;id=556a7b2b8d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                  <div id="mc_embed_signup_scroll">
+
+                      </li>
+
+              <li class="nav-item active mr-1 ml-5">
+              	<input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="email address" required>
+                  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_286fd462a738b71c1e78cf651_556a7b2b8d" tabindex="-1" value=""></div>
+              </li>
+
+
+              <li class="nav-item active">
+                  <div class="clear">
+                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-light"></div>
+                  </div>
+              </li>
+              </form>
+
+
+              </div>
+              <!--End mc_embed_signup-->
+
+            </nav>
 
           </ul>
       </div>
