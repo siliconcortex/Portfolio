@@ -32,8 +32,5 @@ urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('post/<pk>', views.post_detail, name = 'post_detail'),
     path('page/<pk>', views.page_detail, name = 'page_detail'),
-
-    # path('login/', auth_views.LoginView.as_view(),{'template_name':'registration/login.html'},name='login'),
-    # path('logout/', auth_views.LogoutView.as_view(), {'next_page':''}, name='logout'),
-
+    path('contact/',include('contact.urls', namespace='contact')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
