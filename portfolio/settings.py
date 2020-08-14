@@ -31,6 +31,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'lesliecaminade.pythonanywhere.com',
     '127.0.0.1',
+    '*',
     ]
 
 
@@ -88,6 +89,14 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+# DATABASES = { 'default': {
+#     'ENGINE': 'django.db.backends.mysql',
+#     'NAME': 'lesliecaminade$default',
+#     'USER': 'lesliecaminade',
+#     'PASSWORD': 'testpasswordsql',
+#     'HOST': 'lesliecaminade.mysql.pythonanywhere-services.com', }
+# }
 
 
 # Password validation
