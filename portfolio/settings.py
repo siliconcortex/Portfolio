@@ -26,7 +26,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = '-k)w3)n6$h#i*(b!kp8(y0+145syat&(&a3v&i-ptij-mla4h#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'lesliecaminade.pythonanywhere.com',
