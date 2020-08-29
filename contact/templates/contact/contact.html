@@ -4,7 +4,7 @@
 <script src="https://www.google.com/recaptcha/api.js"></script>
 
 <form class="" action="" method="post" id="emailform">
-  {%bootstrap_form form%}
+  {{form.as_p}}
   {% csrf_token %}
   <button type="submit" name="button" class="btn btn-primary g-recaptcha"
         data-sitekey="6LfOxagZAAAAAKznnECEjeJ-9zJtP11WhOysQKVp"
@@ -17,4 +17,5 @@
     document.getElementById("emailform").submit();
   }
 </script>
+
 {% endblock %}

@@ -6,7 +6,7 @@
 <!-- since thumbnails are optional, check if there are no thumbnails -->
 {% if post.thumbnail %}
   <div class="preview">
-    <img itemprop="screenshot" src="{%url 'post.thumbnail.url'%}" />
+    <img itemprop="screenshot" src="{{post.thumbnail.url}}" />
   </div>
 {% endif %}
 
@@ -18,7 +18,7 @@
 
 {% if post.inline_1 %}
 <div class="preview">
-  <img itemprop="screenshot" src="{%url 'post.inline_1.url'%}" />
+  <img itemprop="screenshot" src="{{post.inline_1.url}}" />
 </div>
 {% endif %}
 
@@ -28,7 +28,7 @@
 
 {% if post.inline_2 %}
 <div class="preview">
-  <img itemprop="screenshot" src="{%url 'post.inline_2.url'%}" />
+  <img itemprop="screenshot" src="{{post.inline_2.url}}" />
 </div>
 {% endif %}
 
@@ -38,7 +38,7 @@
 
 {% if post.inline_3 %}
 <div class="preview">
-  <img itemprop="screenshot" src="{%url 'post.inline_3.url'%}" />
+  <img itemprop="screenshot" src="{{post.inline_3.url}}" />
 </div>
 {% endif %}
 
@@ -51,7 +51,7 @@
 
 {% if post.inline_4 %}
 <div class="preview">
-  <img itemprop="screenshot" src="{%url 'post.inline_4.url'%}" />
+  <img itemprop="screenshot" src="{{post.inline_4.url}}" />
 </div>
 {% endif %}
 
@@ -61,7 +61,7 @@
 
 {% if post.inline_5 %}
 <div class="preview">
-  <img itemprop="screenshot" src="{%url 'post.inline_5.url'%}" />
+  <img itemprop="screenshot" src="{{post.inline_5.url}}" />
 </div>
 {% endif %}
 {% endblock %}
