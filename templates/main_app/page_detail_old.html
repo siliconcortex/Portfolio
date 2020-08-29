@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class = "display-4">{{page.title}}</h1>
+<hr class="my-1">
+<!-- since thumbnails are optional, check if there are no thumbnails -->
+{% if page.thumbnail %}
+<div class="container">
+  <img src="{{ page.thumbnail.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="thumbnail image">
+</div>
+{% endif %}
+<hr class="my-4">
+<!-- the ( |safe ) parameter allows the text area to be inserted with HTML tags -->
+{% if page.content_1 %}
+<div class="container">
+  <p>{{page.content_1 | safe}}</p>
+</div>
+
+
+{% endif %}
+
+{% if page.inline_1 %}
+<div class="container col-8">
+  <img src="{{ page.inline_1.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="inline image">
+</div>
+{% endif %}
+
+{% if page.content_2 %}
+<div class="container">
+  <p>{{page.content_2 | safe}}</p>
+</div>
+{% endif %}
+
+{% if page.inline_2 %}
+<div class="container col-8">
+  <img src="{{ page.inline_2.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="inline image">
+</div>
+{% endif %}
+
+{% if page.content_3 %}
+<div class="container">
+  <p>{{page.content_3 | safe}}</p>
+</div>
+{% endif %}
+
+{% if page.inline_3 %}
+<div class="container col-8">
+  <img src="{{ page.inline_3.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="inline image">
+</div>
+{% endif %}
+
+
+{% if page.content_4 %}
+<div class="container">
+  <p>{{page.content_4 | safe}}</p>
+</div>
+{% endif %}
+
+{% if page.inline_4 %}
+<div class="container col-8">
+  <img src="{{ page.inline_4.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="inline image">
+</div>
+{% endif %}
+
+{% if page.content_5 %}
+<div class="container">
+  <p>{{page.content_5 | safe}}</p>
+</div>
+{% endif %}
+
+{% if page.inline_5 %}
+<div class="container col-8">
+  <img src="{{ page.inline_5.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="inline image">
+</div>
+{% endif %}
+
+
+{% endblock %}

@@ -5,72 +5,63 @@
 <hr class="my-1">
 <!-- since thumbnails are optional, check if there are no thumbnails -->
 {% if post.thumbnail %}
-<div class="container">
-  <img src="{{ post.thumbnail.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="thumbnail image">
-</div>
+  <div class="preview">
+    <img itemprop="screenshot" src="{%url 'post.thumbnail.url'%}" />
+  </div>
 {% endif %}
-<hr class="my-4">
+
+<hr>
 <!-- the ( |safe ) parameter allows the text area to be inserted with HTML tags -->
 {% if post.content_1 %}
-<div class="container">
-  <p>{{post.content_1 | safe}}</p>
-</div>
+  {{post.content_1 | safe}}
 {% endif %}
 
 {% if post.inline_1 %}
-<div class="container col-8">
-  <img src="{{ post.inline_1.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="inline image">
+<div class="preview">
+  <img itemprop="screenshot" src="{%url 'post.inline_1.url'%}" />
 </div>
 {% endif %}
 
 {% if post.content_2 %}
-<div class="container">
-  <p>{{post.content_2 | safe}}</p>
-</div>
+  {{post.content_2 | safe}}
 {% endif %}
 
 {% if post.inline_2 %}
-<div class="container col-8">
-  <img src="{{ post.inline_2.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="inline image">
+<div class="preview">
+  <img itemprop="screenshot" src="{%url 'post.inline_2.url'%}" />
 </div>
 {% endif %}
 
 {% if post.content_3 %}
-<div class="container">
-  <p>{{post.content_3 | safe}}</p>
-</div>
+  {{post.content_3 | safe}}
 {% endif %}
 
 {% if post.inline_3 %}
-<div class="container col-8">
-  <img src="{{ post.inline_3.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="inline image">
+<div class="preview">
+  <img itemprop="screenshot" src="{%url 'post.inline_3.url'%}" />
 </div>
 {% endif %}
 
 
 {% if post.content_4 %}
 <div class="container">
-  <p>{{post.content_4 | safe}}</p>
+  {{post.content_4 | safe}}
 </div>
 {% endif %}
 
 {% if post.inline_4 %}
-<div class="container col-8">
-  <img src="{{ post.inline_4.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="inline image">
+<div class="preview">
+  <img itemprop="screenshot" src="{%url 'post.inline_4.url'%}" />
 </div>
 {% endif %}
 
 {% if post.content_5 %}
-<div class="container">
-  <p>{{post.content_5 | safe}}</p>
-</div>
+  {{post.content_5 | safe}}
 {% endif %}
 
 {% if post.inline_5 %}
-<div class="container col-8">
-  <img src="{{ post.inline_5.url }}" class="img-fluid rounded mx-auto d-block m-4 " alt="inline image">
+<div class="preview">
+  <img itemprop="screenshot" src="{%url 'post.inline_5.url'%}" />
 </div>
 {% endif %}
-
-
 {% endblock %}
