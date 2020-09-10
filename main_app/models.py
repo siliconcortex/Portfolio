@@ -3,7 +3,6 @@ from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
 
-
 # Create your models here.
 class Post(models.Model):
     """Page Fields"""
@@ -21,7 +20,6 @@ class Post(models.Model):
     content_5 = models.TextField(blank = True)
     inline_5 = models.ImageField(upload_to='inlines/', blank = True)
     published_date = models.DateTimeField(default = timezone.now)
-
 
 class Page(models.Model):
     """Page Fields"""

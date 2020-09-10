@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'main_app',
     'contact',
     'bootstrap4',
+    'podcast',
 ]
 
 MIDDLEWARE = [

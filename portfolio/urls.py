@@ -28,9 +28,12 @@ from . import settings
 
 
 urlpatterns = [
+
     path('admin/', admin.site.urls, name='admin-login'),
     path('', views.post_list, name='post_list'),
     path('post/<pk>', views.post_detail, name = 'post_detail'),
     path('page/<pk>', views.page_detail, name = 'page_detail'),
-    path('contact/',include('contact.urls', namespace='contact')),
+    path('contact/', include('contact.urls', namespace='contact')),
+    path('podcast/', include('podcast.urls', namespace='podcast')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

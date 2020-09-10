@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Podcast Name</h1>
+<p>This is a podcast subtitle. This is a short statement the describes what the podcast is all about</p>
+<img src="{{episode.podcast.image.url}}" height="100px" alt="">
+<h2>Support this show</h2>
+<p>This is a place where we put all the donation links</p>
+
+<hr>
+<h2>Latest Episodes:</h2>
+{% for episode in object_list %}
+
+<div class="list-item">
+  <h2><a href="{% url 'podcast:episode' pk=episode.pk %}">{{episode.title}}</a></h2>
+  <h3>{{episode.subtitle}}</h3>
+  <p class="date" title="">{{episode.published_date}}</p>
+  <p>{{episode.duration}}</p>
+  <p>{{episode.description|truncatechars:256|safe}}</p>
+</div>
+{% empty %}
+<p>No shows to display yet.</p>
+{% endfor %}
+
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

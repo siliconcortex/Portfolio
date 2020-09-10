@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Podcasts</h1>
+
+<hr>
+{% for podcast in object_list %}
+<div class="list-item">
+  <h2><a href="{% url 'podcast:podcast' pk=podcast.pk %}">{{podcast.title}}</a></h2>
+  <p>{{podcast.subtitle}}</p>
+  <img src="{{podcast.image.url}}" width="200" alt="">
+</div>
+{% empty %}
+<p>No podcasts to display yet.</p>
+{% endfor %}
+
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

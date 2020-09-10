@@ -10,10 +10,10 @@
 		<meta name="author" content="Leslie Caminade" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<meta name="color-scheme" content="dark light">
+		<meta name="color-scheme" content="dark light"/>
 
-    <link rel="stylesheet" href="{%static 'css/normalize.css'%}" />
-    <link rel="stylesheet" href="{%static 'css/style.css'%}" title="Default" />
+    <link rel="stylesheet" href="{%static 'css/normalize.css'%}"/>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}"/>
 	</head>
 
 	<body>
@@ -21,24 +21,19 @@
 			<header class="header">
 				<div class="head-title">
 					<h1><a href="http://lesliecaminade.pythonanywhere.com/">Leslie Caminade</a></h1>
-					<p>News</p>
+					<img src="/media/thumbnail/CGP_leslie_logo2.jpg" width="30" height="30" alt="">
 				</div>
 
 				<div class="head-nav">
-					<a href="#" id="nav"></a>
+					<a href="#" id="nav">Menu</a>
 				</div>
 			</header>
 
 			<aside class="lside" id="lside">
 				<div class="block">
 					<div class="title">Navigation</div>
-
 					<ul>
 						<li><a href="{% url 'post_list' %}">News</a></li>
-						<li><a href="#">Projects</a></li>
-            <li><a href="#">Contacts</a></li>
-						<li><a href="https://www.henrypp.org/donate">Donate</a></li>
-						<li><a href="https://www.henrypp.org/about">About me</a></li>
 					</ul>
 				</div>
 
@@ -46,8 +41,11 @@
 					<div class="title">Projects</div>
 					<ul>
 						{%for page in pages_list%}
-            <li><a class="dropdown-item" href="{%url 'page_detail' pk=page.pk%}">{{page.title}}</a></li>
+            <li><a href="{%url 'page_detail' pk=page.pk%}">{{page.title}}</a></li>
 						{%endfor%}
+						<li>
+							<a href="{%url 'podcast:list'%}">Podcasts</a>
+						</li>
           </ul>
 				</div>
 
@@ -77,7 +75,7 @@
 			</main>
 
 			<footer class="footer">
-				<p>(c) 2009-2020 Leslie Caminade. All rights reversed.</p>
+				<p>(c) 2009-2020 Leslie Caminade. All rights reserved.</p>
 			</footer>
 		</div>
 
